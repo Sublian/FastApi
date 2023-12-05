@@ -82,7 +82,10 @@ python-multipart
 ### Backend desde cero by MoureDev (autor del curso)
 
 En este repo utilizare el curso de MoureDev en el que aprenderemos a utilizar Python para backend e implementaremos un API REST con autenticación, base de datos y desplegaremos el proyecto en un servidor real.
-Clase en vídeo: https://youtu.be/_y9qQZXE24A?t=27335
+ 
+#### Clase en vídeo: https://youtu.be/_y9qQZXE24A?t=27335
+
+<a href= "https://github.com/mouredev/Hello-Python"> Repositorio del Curso de MoureDev </a> 
 > Código: Directorio "Backend" en el proyecto
 
 <a href="https://youtu.be/_y9qQZXE24A"><img src="http://i3.ytimg.com/vi/_y9qQZXE24A/maxresdefault.jpg" style="height: 50%; width:50%;"/></a>
