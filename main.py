@@ -15,6 +15,9 @@ class Item(BaseModel):
 def read_root():
     return {"Hello": "World"}
 
+@app.get("/url")
+async def url():
+    return {"url": "https://moure.dev"}
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
