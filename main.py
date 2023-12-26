@@ -1,29 +1,30 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import Union
+from routers import products, users, basic_auth_users, jwt_auth_users
+from fastapi.staticfiles import StaticFiles
+
+# Documentación oficial: https://fastapi.tiangolo.com/es/
+# Instala FastAPI: pip install "fastapi[all]"
 
 app = FastAPI()
+# inicia el server: uvicorn main:app --reload
+# detener server: control+c
 
+# Routers
+app.include_router(products.router)
+app.include_router(users.router)
+app.include_router(basic_auth_users.router)
+app.include_router(jwt_auth_users.router)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: Union[bool, None] = None
-
-
+# Url local: http://127.0.0.1:8000
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello World with Python & FastAPI"}
 
+# Url local: http://127.0.0.1:8000/url
 @app.get("/url")
 async def url():
-    return {"url": "https://moure.dev"}
+    return {"url": "https://mouredev.com/python"}
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
-
-
-@app.put("/items/{item_id}")
-def update_item(item_id: int, item: Item):
-    return {"item_name": item.name, "item_id": item_id}
+# Documentación con Swagger: http://127.0.0.1:8000/docs
+# Documentación con Redocly: http://127.0.0.1:8000/redoc
